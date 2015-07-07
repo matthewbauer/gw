@@ -3,3 +3,7 @@
 *.so
 *~
 version.c
+*.bc
+*.js
+.npmignore
+package.json
