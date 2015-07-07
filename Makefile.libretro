@@ -212,6 +212,7 @@ else ifneq (,$(findstring armv,$(platform)))
 # emscripten
 else ifeq ($(platform), emscripten)
 	TARGET := $(TARGET_NAME)_libretro_emscripten.bc
+	PLATFORM_DEFINES += -DBZ_STRICT_ANSI
 
 # Windows
 else
@@ -236,8 +237,8 @@ ifeq ($(DEBUG), 1)
 	CXXFLAGS += -O0 -g
   OBJS += $(SOURCES_LUA_C:.c=.o)
 else ifeq ($(platform), emscripten)
-	CFLAGS += -O2 -DNDEBUG
-	CXXFLAGS += -O2 -fno-exceptions -fno-rtti -DHAVE_STDINT_H -DNDEBUG
+	CFLAGS += -O3 -DNDEBUG
+	CXXFLAGS += -O3 -fno-exceptions -fno-rtti -DHAVE_STDINT_H -DNDEBUG
   OBJS += $(SOURCES_LUA_C:.c=.o)
 else
 	CFLAGS += -O3 -DNDEBUG
