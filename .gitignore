@@ -6,3 +6,4 @@ version.c
 *.bc
 .npmignore
 package.json
+*.js
